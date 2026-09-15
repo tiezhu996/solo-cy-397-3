@@ -28,4 +28,8 @@ public class TemplateService {
   public ContractTemplate find(Long id) {
     return templates.stream().filter(item -> item.getId().equals(id)).findFirst().orElse(templates.get(0));
   }
+  public ContractTemplate findById(Long id) {
+    return templates.stream().filter(item -> item.getId().equals(id)).findFirst().orElse(null);
+  }
+  public boolean exists(Long id) { return findById(id) != null; }
 }

@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS template_favorites (id BIGINT PRIMARY KEY AUTO_INCREMENT, user_id BIGINT NOT NULL, template_id BIGINT NOT NULL, created_at DATETIME(3) NOT NULL, UNIQUE KEY uk_template_favorites_user_template (user_id, template_id));

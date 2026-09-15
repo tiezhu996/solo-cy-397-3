@@ -47,8 +47,11 @@ mvn spring-boot:run
 
 ## 主要 API
 
-- `GET /api/templates` 模板列表
+- `GET /api/templates` 模板列表（传 `userId` 时每项附带 `favorited` 收藏标记）
 - `POST /api/templates` 新增模板
+- `POST /api/templates/{id}/favorite?userId=` 收藏模板（重复收藏幂等，模板不存在返回 `NOT_FOUND`）
+- `DELETE /api/templates/{id}/favorite?userId=` 取消收藏
+- `GET /api/templates/favorites?userId=` 收藏列表（按最近收藏时间倒序）
 - `POST /api/contracts/generate` 合同生成
 - `PATCH /api/contracts/{id}/status` 更新签署状态
 - `GET /api/contracts` 用户合同库
